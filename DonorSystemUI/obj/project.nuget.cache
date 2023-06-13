@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "41eWuf2fQlFPmKmE7921Ek6yj/IOIovvtJ0PCe+PkG0Z/HxtrCfTWeNZtGUYewdLI61QhgyG7wHEM3wOLjZxMg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Monster\\source\\repos\\DonorApi\\DonorSystemUI\\DonorSystemUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Monster\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.18.1\\microsoft.visualstudio.azure.containers.tools.targets.1.18.1.nupkg.sha512"
+  ],
+  "logs": []
+}
