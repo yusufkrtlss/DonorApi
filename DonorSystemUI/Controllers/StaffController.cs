@@ -54,7 +54,7 @@ namespace DonorSystemUI.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UpdateService(UpdateDonorDto updateDonorDto)
+        public async Task<IActionResult> UpdateDonor(UpdateDonorDto updateDonorDto)
         {
             if (!ModelState.IsValid)
             {

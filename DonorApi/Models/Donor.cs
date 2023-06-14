@@ -1,4 +1,6 @@
-﻿namespace DonorApi.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace DonorApi.Models
 {
     public class Donor
     {
@@ -8,8 +10,9 @@
         public string Town { get; set; }
         public string City { get; set; }
         public string PhoneNo { get; set; }
-        public string PhotoUrl { get; set; }
+        public string? PhotoUrl { get; set; }
         public AddBlood AddBlood { get; set; }
+        [ForeignKey("AddBlood")]
         public int AddBloodId { get; set; }
     }
 }

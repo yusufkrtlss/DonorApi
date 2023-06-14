@@ -1,17 +1,17 @@
-﻿using DonorApi.Models;
+﻿using BloodBank.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace DonorApi.DataAccess.Context
+namespace BloodBank.DataAccess.Context
 {
-    public class DonorApiDb : DbContext
+    public class BloodApiDb:DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=104.155.56.27;Database=donorapidb;Uid=donorsystemserver;Pwd=Donor1234;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer(@"Server=104.155.56.27;Database=bloodbankdb;Uid=donorsystemserver;Pwd=Donor1234;TrustServerCertificate=True;");
         }
-        public DbSet<Donor> Donors { get; set; }
-        public DbSet<Staff> Staffs { get; set; }
+        public DbSet<RequestBlood> BloodRequests { get; set; }
+        public DbSet<Client> Clients { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

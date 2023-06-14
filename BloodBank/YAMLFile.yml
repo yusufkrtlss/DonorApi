@@ -1,0 +1,43 @@
+﻿swagger: "2.0"
+info:
+  title: BloodBank
+  version: v1
+host: "bloodnak123-3f2gwpmt5zlx2.apigateway.donorsystem-389714.cloud.goog"
+x-google-backend:
+  address: "https://bloodbankyigityusuf.com"
+paths:
+  /api/BloodRequest:
+    post:
+      tags:
+        - BloodRequest
+      operationId: createBloodRequest  # added this line
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/RequestBlood'
+      responses:
+        '200':
+          description: Success
+definitions:
+  RequestBlood:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      requester:
+        type: string
+      city:
+        type: string
+      town:
+        type: string
+      bloodType:
+        type: string
+      unit:
+        type: integer
+        format: int32
+
+
+
+

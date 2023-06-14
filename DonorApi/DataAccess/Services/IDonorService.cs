@@ -4,9 +4,9 @@ namespace DonorApi.DataAccess.Services
 {
     public interface IDonorService
     {
-        Task<Donor> CreateDonorAsync(Donor donor);
-        Task<Donor> UpdateDonorAsync();
-        Task<Donor> DeleteDonorAsync();
+        void CreateDonorAsync(Donor donor);
+        Task<Donor> UpdateDonorAsync(Donor donor);
+        Task<Donor> DeleteDonorAsync(int id);
         Task<Donor> GetDonorWithIdAsync(int id);
         Task<IReadOnlyList<Donor>> GetAllDonorsAsync();
     }

@@ -1,0 +1,140 @@
+﻿swagger: "2.0"
+info:
+  title: DonorApi
+  version: v1
+paths:
+  /api/Donor/CreateDonor:
+    post:
+      tags:
+        - Donor
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Donor'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Donor'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Donor'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Donor'
+      responses:
+        '200':
+          description: Success
+  /api/Donor/UpdateDonor/{id}:
+    get:
+      tags:
+        - Donor
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Donor:
+    post:
+      tags:
+        - Donor
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Donor'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Donor'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Donor'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Donor'
+      responses:
+        '200':
+          description: Success
+  /api/Donor/DeleteDonor:
+    delete:
+      tags:
+        - Donor
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Donor/AddBloodtoBank:
+    post:
+      tags:
+        - Donor
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/AddBlood'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddBlood'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AddBlood'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AddBlood'
+      responses:
+        '200':
+          description: Success
+components:
+  schemas:
+    AddBlood:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        unit:
+          type: integer
+          format: int32
+        donorId:
+          type: integer
+          format: int32
+      additionalProperties: false
+    Donor:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        fullname:
+          type: string
+          nullable: true
+        bloodType:
+          type: string
+          nullable: true
+        town:
+          type: string
+          nullable: true
+        city:
+          type: string
+          nullable: true
+        phoneNo:
+          type: string
+          nullable: true
+        photoUrl:
+          type: string
+          nullable: true
+        addBlood:
+          $ref: '#/components/schemas/AddBlood'
+        addBloodId:
+          type: integer
+          format: int32
+      additionalProperties: false

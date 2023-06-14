@@ -5,7 +5,7 @@ namespace DonorSystemUI.Controllers
 {
     public class ClientController : Controller
     {
-        public IActionResult Index()
+        public IActionResult AddBloodRequest(RequestBloodDto request)
         {
             return View();
         }
