@@ -2321,11 +2321,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Monster\\source\\repos\\DonorApi\\DonorApi\\DonorApi.csproj",
+      "projectUniqueName": "C:\\Users\\Monster\\Source\\Repos\\DonorApi\\DonorApi\\DonorApi.csproj",
       "projectName": "DonorApi",
-      "projectPath": "C:\\Users\\Monster\\source\\repos\\DonorApi\\DonorApi\\DonorApi.csproj",
+      "projectPath": "C:\\Users\\Monster\\Source\\Repos\\DonorApi\\DonorApi\\DonorApi.csproj",
       "packagesPath": "C:\\Users\\Monster\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Monster\\source\\repos\\DonorApi\\DonorApi\\obj\\",
+      "outputPath": "C:\\Users\\Monster\\Source\\Repos\\DonorApi\\DonorApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Monster\\AppData\\Roaming\\NuGet\\NuGet.Config",

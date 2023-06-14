@@ -2321,11 +2321,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Monster\\source\\repos\\DonorApi\\BloodBank\\BloodBank.csproj",
+      "projectUniqueName": "C:\\Users\\Monster\\Source\\Repos\\DonorApi\\BloodBank\\BloodBank.csproj",
       "projectName": "BloodBank",
-      "projectPath": "C:\\Users\\Monster\\source\\repos\\DonorApi\\BloodBank\\BloodBank.csproj",
+      "projectPath": "C:\\Users\\Monster\\Source\\Repos\\DonorApi\\BloodBank\\BloodBank.csproj",
       "packagesPath": "C:\\Users\\Monster\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Monster\\source\\repos\\DonorApi\\BloodBank\\obj\\",
+      "outputPath": "C:\\Users\\Monster\\Source\\Repos\\DonorApi\\BloodBank\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Monster\\AppData\\Roaming\\NuGet\\NuGet.Config",
