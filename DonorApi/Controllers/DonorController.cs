@@ -69,12 +69,11 @@ namespace DonorApi.Controllers
         [Route("DeleteDonor")]
         public async Task<IActionResult> DeleteDonor(int id)
         {
-            var donor = _donorService.DeleteDonorAsync(id);
-            return Ok();
+            return Ok(await _donorService.DeleteDonorAsync(id));
         }
         [HttpPost]
         [Route("AddBloodtoBank")]
-        public IActionResult AddBloodtoBank(AddBlood blood)
+        public IActionResult AddBloodtoBank(Donor donor)
         {
             return Ok();
         }

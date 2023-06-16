@@ -1,15 +1,14 @@
-﻿@using DonorSystemUI.Dtos.DonorDto;
-@model UpdateDonorDto;
+﻿@model RequestBloodDto
 @{
-    ViewData["Title"] = "UpdateDonor";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <form method="post">
     <input type="hidden" asp-for="Id" />
     <label>Full Name</label>
-    <input type="text" asp-for="Fullname" class="form-control" />
-    <span asp-validation-for="Fullname" class="text-info"></span>
+    <input type="text" asp-for="Requester" class="form-control" />
+    <span asp-validation-for="Requester" class="text-info"></span>
     <br />
     <label>Blood Type</label>
     <input type="text" asp-for="BloodType" class="form-control" />
@@ -23,18 +22,11 @@
     <input type="text" asp-for="City" class="form-control" />
     <span asp-validation-for="City" class="text-info"></span>
     <br />
-    <label>Phone</label>
-    <input type="text" asp-for="PhoneNo" class="form-control" />
-    <span asp-validation-for="PhoneNo" class="text-info"></span>
-    <br />
-    <label>Photo</label>
-    <input type="text" asp-for="PhotoUrl" class="form-control" />
-    <span asp-validation-for="PhotoUrl" class="text-info"></span>
-    <br />
     <label>Unit</label>
     <input type="text" asp-for="Unit" class="form-control" />
     <span asp-validation-for="Unit" class="text-info"></span>
     <br />
-    <button class="btn btn-primary">Update</button>
+    <button class="btn btn-primary">Create</button>
 </form>
+
 

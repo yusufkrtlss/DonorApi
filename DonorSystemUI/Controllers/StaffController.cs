@@ -14,8 +14,16 @@ namespace DonorSystemUI.Controllers
             _httpClientFactory = httpClientFactory;
         }
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("http://localhost:7245/api/Donor");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultDonorDto>>(jsonData);
+                return View(values);
+            }
             return View();
         }
         [HttpGet]
@@ -33,10 +41,10 @@ namespace DonorSystemUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createDonorDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("http://localhost:44354/DonorApi/Donor", stringContent);
+            var responseMessage = await client.PostAsync("https://localhost:7245/api/Donor", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
             return View();
         }
@@ -44,7 +52,7 @@ namespace DonorSystemUI.Controllers
         public async Task<IActionResult> UpdateDonor(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"http://localhost:44354/DonorApi/Donor/{id}");
+            var responseMessage = await client.GetAsync($"https://localhost:7245/api/Donor/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();

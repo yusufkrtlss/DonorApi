@@ -1,5 +1,6 @@
 ﻿using DonorApi.DataAccess.Context;
 using DonorApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DonorApi.DataAccess.Services
 {
@@ -17,9 +18,11 @@ namespace DonorApi.DataAccess.Services
             throw new NotImplementedException();
         }
 
-        public Task<IReadOnlyList<Donor>> GetAllDonorsAsync()
+        public async Task<IReadOnlyList<Donor>> GetAllDonorsAsync()
         {
-            throw new NotImplementedException();
+            var c = new DonorApiDb();
+            return c.Donors.ToList();
+            
         }
 
         public Task<Donor> GetDonorWithIdAsync(int id)

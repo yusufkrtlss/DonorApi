@@ -18,5 +18,8 @@ namespace DonorSystemUI.Dtos.DonorDto
         public string PhoneNo { get; set; }
         [Required(ErrorMessage = "Enter a Photo Url")]
         public string PhotoUrl { get; set; }
+        [Required(ErrorMessage = "Enter a Unit")]
+        public string Unit { get; set; }
+
     }
 }

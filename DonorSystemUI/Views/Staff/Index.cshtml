@@ -1,8 +1,33 @@
-﻿
+﻿@model List<ResultDonorDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Full Name</th>
+        <th>Blood Type</th>
+        <th>Town</th>
+        <th>City</th>
+        <th>Unit</th>
+        <th>Delete</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Fullname</td>
+            <td>@item.BloodType</td>
+            <td>@item.Town</td>
+            <td>@item.City</td>
+            <td>@item.Unit</td>
+            <td><a href="/Staff/DeleteDonor/@item.Id" class="btn mb-1 btn-rounded btn-outline-danger">Delete</a></td>
+            <td><a href="/Staff/UpdateDonor/@item.Id" class="btn mb-1 btn-rounded btn-outline-success">Edit</a></td>
+        </tr>
+    }
+</table>
+<a href="/Donor/CreateDonor/" class="btn mb-1 btn-rounded btn-outline-info">New Donor Entry</a>
 
