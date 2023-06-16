@@ -1,8 +1,31 @@
-﻿
+﻿@model UpdateDonorDto
 @{
     ViewData["Title"] = "AddBloodtoBank";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h1>AddBloodtoBank</h1>
-
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+    <label>Full Name</label>
+    <input type="text" asp-for="Fullname" class="form-control" />
+    <span asp-validation-for="Fullname" class="text-info"></span>
+    <br />
+    <label>Blood Type</label>
+    <input type="text" asp-for="BloodType" class="form-control" />
+    <span asp-validation-for="BloodType" class="text-info"></span>
+    <br />
+    <label>Town</label>
+    <input type="text" asp-for="Town" class="form-control" />
+    <span asp-validation-for="Town" class="text-info"></span>
+    <br />
+    <label>City</label>
+    <input type="text" asp-for="City" class="form-control" />
+    <span asp-validation-for="City" class="text-info"></span>
+    <br />
+    <label>Unit</label>
+    <input type="text" asp-for="Unit" class="form-control" />
+    <span asp-validation-for="Unit" class="text-info"></span>
+    <br />
+    <button class="btn btn-primary">Add</button>
+</form>

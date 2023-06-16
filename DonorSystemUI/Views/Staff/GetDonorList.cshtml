@@ -1,9 +1,15 @@
 ﻿@model List<ResultDonorDto>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "GetDonorList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<form autocomplete="off" class="navbar-form-custom " id="searchForm">
+
+    <input class="form-control" id="searchId" type="text" placeholder="Search for symbol..." name="symbol">
+
+</form>
 <table class="table table-bordered">
     <tr>
         <th>#</th>
@@ -29,5 +35,8 @@
         </tr>
     }
 </table>
-<a href="/Donor/CreateDonor/" class="btn mb-1 btn-rounded btn-outline-info">New Donor Entry</a>
+<a href="/Staff/CreateDonor/" class="btn mb-1 btn-rounded btn-outline-info">New Donor Entry</a>
+
+
+
 

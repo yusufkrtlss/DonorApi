@@ -48,3 +48,83 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+@*<script>
+    $(document).ready(function () {
+        $("#searchId").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("Search", "Staff")',
+                    headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                    data: { "term": request.term },
+                    dataType: "json",
+
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return item;
+                        }))
+                    },
+                    error: function (xhr, textStatus, error) {
+                        alert(xhr.statusText);
+                        alert(textStatus);
+                        alert("errorr");
+                    },
+                    failure: function (response) {
+                        alert("failure " + response.responseText);
+                    }
+                });
+            },
+            //select: function (e, i) {
+            //    window.location.href = "/Company/Index/" + i.item.id;
+            //    //$('#hiddenId').val(i.item.value);
+            //    return false;
+            //},
+
+            minLength: 1
+        }).autocomplete("instance")._renderItem = function (ul, item) {
+            return $("<li>")
+                .append("<a class='search-item'> " + item.symbol + "</a>")
+                .appendTo(ul);
+        };
+    });
+
+
+</script>*@
+<script>
+    $(document).ready(function () {
+        $("#searchId").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("Search", "Staff")',
+                    headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                    data: { "term": request.term },
+                    dataType: "json",
+                    success: function (data) {
+                        var parsedData = JSON.parse(data);
+                        response($.map(parsedData, function (item) {
+                            return { id: item.id, value: item.name };
+                        }));
+                    },
+                    error: function (xhr, textStatus, error) {
+                        alert(xhr.statusText);
+                        alert(textStatus);
+                        alert("errorr");
+                    }
+                });
+            },
+            select: function (e, i) {
+                window.location.href = "/Staff/AddBloodtoBank/" + i.item.id;
+                    //$('#hiddenId').val(i.item.value);
+                    return false;
+                },
+            minLength: 1
+        }).autocomplete("instance")._renderItem = function (ul, item) {
+            return $("<li>")
+                .append("<div>" + item.value + "</div>")
+                .appendTo(ul);
+        };
+    });
+</script>

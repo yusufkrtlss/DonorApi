@@ -1,6 +1,8 @@
 ﻿using DonorApi.DataAccess.Context;
 using DonorApi.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Drawing;
 
 namespace DonorApi.DataAccess.Services
 {
@@ -13,9 +15,12 @@ namespace DonorApi.DataAccess.Services
             c.SaveChanges();
         }
 
-        public Task<Donor> DeleteDonorAsync(int id)
+        public void DeleteDonorAsync(int id)
         {
-            throw new NotImplementedException();
+            var c = new DonorApiDb();
+            var donor = c.Donors.Where(x => x.Id == id).First();
+            c.Donors.Remove(donor);
+            c.SaveChanges();
         }
 
         public async Task<IReadOnlyList<Donor>> GetAllDonorsAsync()
@@ -25,14 +30,21 @@ namespace DonorApi.DataAccess.Services
             
         }
 
-        public Task<Donor> GetDonorWithIdAsync(int id)
+        public async Task<Donor> GetDonorWithIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var c = new DonorApiDb();
+            var donor = c.Donors.Where(x => x.Id == id).FirstOrDefault();
+            return donor;
         }
 
-        public Task<Donor> UpdateDonorAsync(Donor donor)
+        
+
+        public void UpdateDonorAsync(Donor donor)
         {
-            throw new NotImplementedException();
+            using var c = new DonorApiDb();
+            c.Donors.Update(donor);
+            c.SaveChanges();
+            
         }
     }
 }

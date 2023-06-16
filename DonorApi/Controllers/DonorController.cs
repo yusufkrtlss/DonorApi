@@ -1,5 +1,7 @@
-﻿using DonorApi.DataAccess.Services;
+﻿using DonorApi.DataAccess.Context;
+using DonorApi.DataAccess.Services;
 using DonorApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -60,22 +62,61 @@ namespace DonorApi.Controllers
                     PhotoUrl = donor.PhotoUrl,
                     Town = donor.Town,
                 };
-                await _donorService.UpdateDonorAsync(model);
+                 _donorService.UpdateDonorAsync(model);
             }
             return Ok();
         }
         
         [HttpDelete]
-        [Route("DeleteDonor")]
-        public async Task<IActionResult> DeleteDonor(int id)
+        [Route("DeleteDonor/{id}")]
+        public IActionResult DeleteDonor(int id)
         {
-            return Ok(await _donorService.DeleteDonorAsync(id));
+            _donorService.DeleteDonorAsync(id);
+            return Ok();
+        }
+        [HttpGet]
+        [Route("GetAllDonors")]
+        public async Task<IActionResult> GetDonorList()
+        {
+            return Ok(await _donorService.GetAllDonorsAsync());
+        }
+        [HttpGet]
+        [Route("AddBloodtoBank/{id}")]
+        public async Task<IActionResult> AddBloodtoBank(int id)
+        {
+            return Ok(await _donorService.GetDonorWithIdAsync(id));
         }
         [HttpPost]
         [Route("AddBloodtoBank")]
         public IActionResult AddBloodtoBank(Donor donor)
         {
+            if (ModelState.IsValid)
+            {
+                
+                _donorService.UpdateDonorAsync(donor);
+            }
             return Ok();
+        }
+
+
+        [Produces("application/json")]
+        [Route("search")]
+        [HttpGet]
+        public  IActionResult Search(string term)
+        {
+            try
+            {
+                var c = new DonorApiDb();
+                term = term?.ToLower();
+                //string term = HttpContext.Request.Query["term"].ToString().ToUpper();
+                var query = c.Donors.ToList().Where(i => i.Fullname.Contains(term)).Select(x => new { id = x.Id, name = x.Fullname });
+                return Ok(query);
+            }
+            catch (Exception ex)
+            {
+                // Log exception here
+                return StatusCode(500, "Internal server error");
+            }
         }
     }
 }
