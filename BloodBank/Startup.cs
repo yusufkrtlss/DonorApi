@@ -28,7 +28,7 @@ namespace BloodBank
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IBloodService, BloodManager>();
-
+            services.AddHttpClient();
             services.AddCors(opt =>
             {
                 opt.AddPolicy("BloodBankCors", opts =>
@@ -52,6 +52,7 @@ namespace BloodBank
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BloodBank v1"));
             }
+           
             app.UseRouting();
             app.UseStaticFiles();
             app.UseCors("BloodBank");

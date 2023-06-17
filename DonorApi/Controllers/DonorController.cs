@@ -1,6 +1,7 @@
 ﻿using DonorApi.DataAccess.Context;
 using DonorApi.DataAccess.Services;
 using DonorApi.Models;
+using DonorApi.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -88,12 +89,20 @@ namespace DonorApi.Controllers
         }
         [HttpPost]
         [Route("AddBloodtoBank")]
-        public IActionResult AddBloodtoBank(Donor donor)
+        public IActionResult AddBloodtoBank(AddBloodDto donor)
         {
             if (ModelState.IsValid)
             {
-                
-                _donorService.UpdateDonorAsync(donor);
+                var model = new Donor()
+                {
+                    BloodType = donor.BloodType,
+                    City = donor.City,
+                    Fullname = donor.Fullname,  
+                    Town = donor.Town,
+                    Unit = donor.Unit
+                    
+                };
+                _donorService.UpdateDonorAsync(model);
             }
             return Ok();
         }
@@ -117,6 +126,16 @@ namespace DonorApi.Controllers
                 // Log exception here
                 return StatusCode(500, "Internal server error");
             }
+        }
+
+        [HttpGet]
+        [Route("availability")]
+        public IActionResult GetAvailability(string city, string bloodType)
+        {
+            var c = new DonorApiDb();
+            var donors = c.Donors.Where(d => d.City == city && d.BloodType == bloodType);
+            int totalUnits = donors.Sum(d => d.Unit);
+            return Ok(totalUnits);
         }
     }
 }

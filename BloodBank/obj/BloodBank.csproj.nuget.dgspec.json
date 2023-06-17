@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yigitcan.cirpan\\source\\repos\\DonorApi\\Bloodbank\\BloodBank.csproj": {}
+    "C:\\Users\\yigitcan.cirpan\\source\\repos\\DonorApi\\BloodBank\\BloodBank.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yigitcan.cirpan\\source\\repos\\DonorApi\\Bloodbank\\BloodBank.csproj": {
+    "C:\\Users\\yigitcan.cirpan\\source\\repos\\DonorApi\\BloodBank\\BloodBank.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yigitcan.cirpan\\source\\repos\\DonorApi\\Bloodbank\\BloodBank.csproj",
+        "projectUniqueName": "C:\\Users\\yigitcan.cirpan\\source\\repos\\DonorApi\\BloodBank\\BloodBank.csproj",
         "projectName": "BloodBank",
-        "projectPath": "C:\\Users\\yigitcan.cirpan\\source\\repos\\DonorApi\\Bloodbank\\BloodBank.csproj",
+        "projectPath": "C:\\Users\\yigitcan.cirpan\\source\\repos\\DonorApi\\BloodBank\\BloodBank.csproj",
         "packagesPath": "C:\\Users\\yigitcan.cirpan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yigitcan.cirpan\\source\\repos\\DonorApi\\Bloodbank\\obj\\",
+        "outputPath": "C:\\Users\\yigitcan.cirpan\\source\\repos\\DonorApi\\BloodBank\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages"

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 
@@ -42,7 +43,7 @@ namespace DonorSystemUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createDonorDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:5206/api/Donor", stringContent);
+            var responseMessage = await client.PostAsync("http://localhost:5206/api/Donor", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index","Home");
@@ -53,7 +54,7 @@ namespace DonorSystemUI.Controllers
         public async Task<IActionResult> UpdateDonor(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"https://localhost:5206/api/Donor/{id}");
+            var responseMessage = await client.GetAsync($"http://localhost:5206/api/Donor/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -117,6 +118,15 @@ namespace DonorSystemUI.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
+            }
+            else if (responseMessage.StatusCode == HttpStatusCode.BadRequest)
+            {
+                // If it's a bad request, read the error message from the API
+                var error = await responseMessage.Content.ReadAsStringAsync();
+
+                // Show the error to the user
+                ModelState.AddModelError(string.Empty, $"Failed to create the request: {error}");
+                return BadRequest(responseMessage);
             }
             return View();
         }

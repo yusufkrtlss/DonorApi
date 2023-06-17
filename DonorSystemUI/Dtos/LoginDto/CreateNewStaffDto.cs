@@ -22,5 +22,6 @@ namespace DonorSystemUI.Dtos.LoginDto
         public string Phone { get; set; }
         [Required(ErrorMessage = "Please Select whether you are staff or client")]
         public bool StaffOrClient { get; set; }
+        
     }
 }

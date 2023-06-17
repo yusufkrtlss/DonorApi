@@ -41,7 +41,7 @@ namespace DonorSystemUI.Controllers
                 }
                 else if (roles.Contains("Client"))
                 {
-                    return RedirectToAction("Index", "Client");
+                    return RedirectToAction("AddBloodRequest", "Client");
                 }
                // return RedirectToAction("Index", "Home");
             }
@@ -57,10 +57,10 @@ namespace DonorSystemUI.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> SignUp(CreateNewStaffDto model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(model);
+            //}
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(model);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");

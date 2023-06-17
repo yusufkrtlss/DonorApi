@@ -10,6 +10,7 @@ namespace IdentityApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class LoginController : ControllerBase
     {
         private readonly UserManager<AppUser> _userManager;
@@ -68,8 +69,7 @@ namespace IdentityApi.Controllers
         public async Task<IActionResult> SignUp(SignUpViewModel model)
         {
 
-            if (ModelState.IsValid)
-            {
+            
                 AppUser user = new AppUser()
                 {
                     UserName = model.UserName,
@@ -100,8 +100,19 @@ namespace IdentityApi.Controllers
                         ModelState.AddModelError("", item.Description);
                     }
                 }
-            }
+            
             return Ok(model);
+        }
+        [HttpGet("GetUsername")]
+        [Route("GetUserName")]
+        public async Task<ActionResult<string>> GetUsername()
+        {
+            var user = User.Identity.Name;
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+            return Ok(user);
         }
     }
 }

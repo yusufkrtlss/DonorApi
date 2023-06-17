@@ -16,8 +16,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\yigitcan.cirpan\source\repos\DonorApi\DonorSystemUI
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/yigitcan.cirpan/source/repos/DonorApi/DonorSystemUI/Views/Client/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XEluZGV4LmNzaHRtbA==
+[C:/Users/yigitcan.cirpan/source/repos/DonorApi/DonorSystemUI/Views/Client/AddBloodRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XEFkZEJsb29kUmVxdWVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/yigitcan.cirpan/source/repos/DonorApi/DonorSystemUI/Views/Home/Index.cshtml]

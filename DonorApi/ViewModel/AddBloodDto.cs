@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DonorSystemUI.Dtos.DonorDto
+namespace DonorApi.ViewModel
 {
     public class AddBloodDto
     {
